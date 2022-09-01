@@ -29,16 +29,15 @@ class TimidAgent(Agent):
         # the agents are in the same row/column
         # getAction, AgentState, GetGhostStates()
         # if ghost.getDirection.x == pacman.getDirection.x or pacman.y == ghost.y:
-        if ghost.getDirections.x in pacman.getDirections.x:
+        #if ghost.getDirections.x in pacman.getDirections.x:
             # the ghost is not frightened
-            # if not ghost.isScared:
-            if ghost.speed != 0.5:
-                # the agents are <= dist units away from one another
-                if (abs(ghost.x - pacman.x)) or (abs(ghost.y - pacman.y)) <= dist:
-                    return ghost.Directions
+        if not ghost.isScared:
+            # the agents are <= dist units away from one another
+            if (abs(ghost.x - pacman.x)) or (abs(ghost.y - pacman.y)) <= dist:
+                return ghost.Directions
         else:
             # if not in danger agent stops/ left turn behavior
-            Directions.Stop
+            Directions.STOP
 
         raise NotImplemented
 
