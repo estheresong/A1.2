@@ -29,10 +29,9 @@ class TimidAgent(Agent):
 
         # Your code
         # the agents are in the same row/column
-        # getAction, AgentState, GetGhostStates()
+
         # the ghost is not frightened
-        pacman.pos()
-        if not ghost.isScared():
+        if not ghost.isScared:
             # check if agents are in the same row/column
             if ghost.getPosition()[0] == pacman.getPosition()[0] or ghost.getPosition()[1] == pacman.getPosition()[1]:
                 # the agents are <= dist units away from one another
@@ -57,9 +56,8 @@ class TimidAgent(Agent):
         heading = agentState.getDirection()
 
         # if the pacman is actually in danger, these steps will be taken
-        if agentState is self.inDanger():
-            ghostStates.Directions = agentState.Directions
-            return myAgents.TimidAgent.getAction(self, state)
+        self.inDanger(pacman, state.getGhostStates()[0])
+        self.inDanger(pacman, state.getGhostStates()[1])
 
         # runs left turn agent when not in danger
         return pacmanAgents.LeftTurnAgent.getAction(self, state)
